@@ -20,9 +20,6 @@ namespace AJBellTest
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(40);
             driver.Navigate().GoToUrl("https://www.investcentre.co.uk");
             driver.Manage().Window.Maximize();
-            var newWindowHandle = driver.WindowHandles[0];
-            Assert.IsTrue(!string.IsNullOrEmpty(newWindowHandle));
-            driver.SwitchTo().Window(driver.WindowHandles[0]);
             Thread.Sleep(2000);
             driver.FindElement(By.Id("gateway-adviser")).Click();
             Thread.Sleep(2000);
