@@ -40,7 +40,8 @@ namespace AJBellTest
             driver.SwitchTo().Window(windows[1]);
                      
             string title1 = driver.Url;
-            Console.WriteLine(title1);
+            string pageTitle1 = driver.Title;
+            Console.WriteLine("This is page url:" + title1,"\n","This is page Title:"+pageTitle1);
             Thread.Sleep(2000);
             driver.Close();
             //Switch to parent window 
@@ -54,12 +55,13 @@ namespace AJBellTest
             ReadOnlyCollection<string> windows1 = driver.WindowHandles;
             driver.SwitchTo().Window(windows1[1]);
             string title2 = driver.Url;
-            Console.WriteLine(title2);
+            string pageTitle2 = driver.Title;
+            Console.WriteLine("This is page url:" + title2, "\n", "This is page Title:" + pageTitle2);
             Thread.Sleep(2000);
             driver.Close();
             //Switch to parent window 
             driver.SwitchTo().Window(windows[0]);
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
 
             driver.FindElement(By.XPath("//*[@class='grid-x']/div/p[3]/strong")).Click();
             
@@ -67,12 +69,14 @@ namespace AJBellTest
             ReadOnlyCollection<string> windows2 = driver.WindowHandles;
             driver.SwitchTo().Window(windows2[1]);
             string title3 = driver.Url;
+            string pageTitle3 = driver.Title;
+            Console.WriteLine("This is page url:" + title3, "\n", "This is page Title:" + pageTitle3);
             Thread.Sleep(2000);
-            Console.WriteLine(title3);
             driver.Close();
             //Switch to parent window 
-            Thread.Sleep(3000);
+            
             driver.SwitchTo().Window(windows2[0]);
+            Thread.Sleep(1000);
             driver.Close();
         }
         
